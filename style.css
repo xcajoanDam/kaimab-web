@@ -26,48 +26,52 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  height: 45px; /* molt més petita */
+  height: 45px;
   padding: 4px 25px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--navbar-bg);
+  background-color: transparent; /* el fons el farem amb ::before */
   z-index: 10;
   transition:
-    background-color 0.3s ease,
-    opacity 0.3s ease,
     height 0.3s ease,
     padding 0.3s ease;
 }
 
-
-.navbar.scrolled {
-  opacity: 0.9;
+/* Capa de fons separada */
+.navbar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--navbar-bg);
+  transition: opacity 0.3s ease, background-color 0.3s ease;
+  z-index: -1;
+  opacity: 1; /* totalment opac per defecte */
 }
 
+/* Quan fas scroll — només baixa una mica la opacitat del fons */
+
+
 .logo img {
-  height: 39px; /* molt més petit per defecte */
+  height: 39px;
   width: auto;
   transition: height 0.3s ease;
 }
-
-
-
-/* --- Enllaços minimalistes --- */
+.navbar.scrolled::before {
+  opacity: 0.1; /* no tan transparent */
+  
+}
+/* --- Enllaços --- */
 .nav-links a {
   color: var(--text-light);
   text-decoration: none;
   margin-left: 25px;
   font-weight: 500;
-  font-size: 0.8rem; /* més petit, estil mòbil */
+  font-size: 0.8rem;
   position: relative;
-  transition:
-    color 0.3s ease,
-    font-size 0.3s ease;
+  transition: color 0.3s ease, font-size 0.3s ease;
 }
 
-
-/* Línia animada sota l'enllaç */
 .nav-links a::after {
   content: '';
   position: absolute;
@@ -89,6 +93,7 @@ body {
 .nav-links a:hover {
   color: #ffffff;
 }
+
 
 /* --- Hero Section --- */
 .hero {
