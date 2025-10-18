@@ -21,40 +21,51 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* --- Navbar --- */
+/* --- Navbar estil iPhone --- */
 .navbar {
   position: fixed;
   top: 0;
   width: 100%;
-  height: 80px;
-  padding: 10px 60px;
+  height: 45px; /* molt més petita */
+  padding: 4px 25px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: var(--navbar-bg);
   z-index: 10;
-  transition: background-color 0.3s ease, opacity 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    opacity 0.3s ease,
+    height 0.3s ease,
+    padding 0.3s ease;
 }
 
+
 .navbar.scrolled {
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .logo img {
-  height: 45px;
+  height: 39px; /* molt més petit per defecte */
   width: auto;
+  transition: height 0.3s ease;
 }
 
-/* --- Navegació amb transició minimalista --- */
+
+
+/* --- Enllaços minimalistes --- */
 .nav-links a {
   color: var(--text-light);
   text-decoration: none;
-  margin-left: 40px;
+  margin-left: 25px;
   font-weight: 500;
-  font-size: 1rem;
+  font-size: 0.8rem; /* més petit, estil mòbil */
   position: relative;
-  transition: color 0.3s ease;
+  transition:
+    color 0.3s ease,
+    font-size 0.3s ease;
 }
+
 
 /* Línia animada sota l'enllaç */
 .nav-links a::after {
@@ -63,7 +74,7 @@ body {
   width: 0;
   height: 2px;
   left: 0;
-  bottom: -5px;
+  bottom: -4px;
   background-color: var(--text-light);
   transition: width 0.3s ease, transform 0.3s ease;
   transform: scaleX(0);
@@ -108,7 +119,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.6);
   z-index: 2;
 }
 
@@ -468,13 +479,12 @@ body {
   color: #ffffff;
 }
 
-/* --- Botó blanc per "More Products" --- */
 /* --- Botó blanc per "More Products" amb la mateixa animació --- */
 .white-btn {
   display: inline-block;
   padding: 12px 30px;
-  background-color: white;
-  color: black;
+  background-color: transparent;
+  color: #D3DAD9;
   font-weight: 500;
   text-decoration: none;
   position: relative;
@@ -490,7 +500,7 @@ body {
   height: 2px;
   left: 0;
   bottom: -5px;
-  background-color: #bfbfbf; /* gris clar */
+  background-color: #7f7f7f; /* gris clar */
   transition: width 0.3s ease, transform 0.3s ease;
   transform: scaleX(0);
   transform-origin: left;
@@ -498,8 +508,8 @@ body {
 
 /* Efecte hover: fons gris + línia apareix */
 .white-btn:hover {
-  background-color: #d9d9d9;
-  color: black;
+  background-color: transparent;
+  color: 7f7f7f;
 }
 
 .white-btn:hover::after {
@@ -513,7 +523,73 @@ body {
 .parallax.visible .story-content {
   opacity: 1;
   transform: translateY(0);
+}/* --- Credits Section --- */
+
+.credits-section {
+  background-color: #000000;
+  color: #D3DAD9;
+  padding: 100px 40px;
+  text-align: center;
 }
+
+.credits-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.credits-columns {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px; /* Espai uniforme entre columnes */
+  text-align: left;
+  align-items: stretch; /* Fa que totes les columnes tinguin la mateixa alçada */
+}
+
+.credits-column {
+  flex: 1;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Espai entre contingut dins la columna */
+  margin-bottom: 30px;
+}
+
+.credits-logo {
+  width: 150px;
+  margin-bottom: 15px;
+  opacity: 0.95;
+}
+
+.instagram-logo {
+  width: 24px;
+  height: 24px;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.company-name {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+
+/* --- Footer minimalista --- */
+.footer {
+  
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 5px 20px; /* espai petit */
+  background-color: black; /* mateix color que la navbar per coherència */
+  color: var(--text-light);
+  font-size: 0.7rem; /* text petit */
+  text-align: left;
+  z-index: 5;
+  box-shadow: 0 -1px 4px rgba(0,0,0,0.1); /* opcional: lleugera ombra */
+}
+
+
 
 /* --- Responsive --- */
 @media (max-width: 768px) {
