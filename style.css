@@ -1,0 +1,571 @@
+:root {
+  --navbar-bg: #7f7f7f;
+  --text-light: #ffffff;
+  --text-muted: #e6e6e6;
+  --font-main: 'GFS Didot', serif;
+}
+
+/* Reset bàsic */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Aplica la font Didot a tot el lloc */
+body {
+  font-family: var(--font-main);
+  color: var(--text-light);
+  background-color: #000;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- Navbar --- */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 80px;
+  padding: 10px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--navbar-bg);
+  z-index: 10;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.navbar.scrolled {
+  opacity: 0.8;
+}
+
+.logo img {
+  height: 45px;
+  width: auto;
+}
+
+/* --- Navegació amb transició minimalista --- */
+.nav-links a {
+  color: var(--text-light);
+  text-decoration: none;
+  margin-left: 40px;
+  font-weight: 500;
+  font-size: 1rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Línia animada sota l'enllaç */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: -5px;
+  background-color: var(--text-light);
+  transition: width 0.3s ease, transform 0.3s ease;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+  transform: scaleX(1);
+}
+
+.nav-links a:hover {
+  color: #ffffff;
+}
+
+/* --- Hero Section --- */
+.hero {
+  height: 100vh;
+  background: url('img/kaimab-main-background.png') center/cover no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  background-attachment: fixed;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(2px);
+  z-index: 1;
+}
+
+.white-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+/* Logo central */
+.hero-logo {
+  width: 150px;
+  margin-bottom: 25px;
+  opacity: 0.95;
+}
+
+/* Contingut del hero */
+.hero-content {
+  position: relative;
+  z-index: 3;
+  color: var(--text-light);
+  padding: 0 20px;
+  margin-top: 120px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.hero-content h1 {
+  font-size: 4rem;
+  font-weight: 900;
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  margin-top: 25px;
+  color: var(--text-muted);
+}
+
+/* --- Info Section --- */
+.info-section {
+  background-color: #D3DAD9;
+  color: #000000;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.info-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Títol */
+.info-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px; /* abans 30px */
+  text-transform: uppercase;
+}
+
+/* Paràgrafs */
+.info-section p {
+  font-size: 1.1rem;
+  line-height: 1.4; /* més junt */
+  margin-bottom: 8px; /* abans 20px */
+  color: #333333;
+}
+  
+
+/* --- Story Section --- */
+.story-section {
+  height: 80vh;
+  background: url('img/kaimab-story-background.png') center/cover no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  background-attachment: fixed;
+}
+
+.story-section .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(2px);
+  background: rgba(0,0,0,0.5);
+  z-index: 1;
+}
+
+.story-section .white-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.3);
+  z-index: 2;
+}
+
+.story-content {
+  position: relative;
+  z-index: 3;
+  color: #ffffff;
+  max-width: 800px;
+  padding: 0 20px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.story-content h2 {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+}
+
+.story-content p {
+  font-size: 1.3rem;
+  line-height: 1.9;
+  margin-bottom: 20px;
+  color: #f0f0f0;
+}
+
+/* --- About Section --- */
+.about-section {
+  background-color: #D3DAD9;
+  color: #000000;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.about-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
+
+.about-section p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  color: #333333;
+}
+
+.about-btn {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: transparent;
+  color: #7f7f7f;
+  font-weight: 500;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.about-btn::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: -5px;
+  background-color: #7f7f7f;
+  transition: width 0.3s ease, transform 0.3s ease;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.about-btn:hover::after {
+  width: 100%;
+  transform: scaleX(1);
+}
+
+.about-btn:hover {
+  color: #000000;
+}
+
+/* --- Gallery Section --- */
+.gallery-section {
+  background-color: #D3DAD9;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.gallery-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.gallery-img {
+  width: 48%;
+  height: auto;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* --- Buckle Section --- */
+.buckle-section {
+  height: 100vh;
+  background: url('img/kaimab-buckle_up-background.png') center/cover no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  background-attachment: fixed;
+}
+
+.buckle-section .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(2px);
+  z-index: 1;
+}
+
+.buckle-section .white-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+.buckle-content {
+  position: relative;
+  z-index: 3;
+  color: #ffffff;
+  padding: 0 20px;
+}
+
+.buckle-content h2 {
+  font-size: 3rem;
+  font-weight: 900;
+  line-height: 1.2;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+}
+
+/* --- Materials Section --- */
+.materials-section {
+  background-color: #D3DAD9;
+  color: #000000;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.materials-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.materials-section p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 40px;
+  color: #333333;
+}
+
+.materials-gallery {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.material-img {
+  width: 48%;
+  height: auto;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.material-img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* --- Natural Section --- */
+.natural-section {
+  background-color: #201d1d;
+  color: #ffffff;
+  padding: 100px 40px;
+  text-align: center;
+}
+
+.natural-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.natural-title h2 {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.natural-title .subtitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 1.6;
+  margin-bottom: 60px;
+}
+
+/* columns */
+.natural-columns {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 60px;
+  flex-wrap: wrap;
+  text-align: left;
+}
+
+.natural-columns .column {
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
+}
+
+.natural-columns .column p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #f0f0f0;
+  margin-bottom: 20px;
+}
+
+.natural-columns .subtitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+/* --- Botó blanc per "More Products" --- */
+/* --- Botó blanc per "More Products" amb la mateixa animació --- */
+.white-btn {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: white;
+  color: black;
+  font-weight: 500;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
+  border-radius: 30px;
+}
+
+/* Línia inferior animada com els altres botons */
+.white-btn::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: -5px;
+  background-color: #bfbfbf; /* gris clar */
+  transition: width 0.3s ease, transform 0.3s ease;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+/* Efecte hover: fons gris + línia apareix */
+.white-btn:hover {
+  background-color: #d9d9d9;
+  color: black;
+}
+
+.white-btn:hover::after {
+  width: 100%;
+  transform: scaleX(1);
+}
+
+
+/* --- Animació visible al fer scroll --- */
+.parallax.visible .hero-content,
+.parallax.visible .story-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    padding: 20px 40px;
+  }
+
+  .nav-links {
+    margin-top: 10px;
+  }
+
+  .nav-links a {
+    margin: 0 10px;
+    font-size: 0.85rem;
+  }
+
+  .hero-content {
+    margin-top: 100px;
+  }
+
+  .hero-content h1 {
+    font-size: 2.4rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .hero-logo {
+    width: 50px;
+  }
+
+  .story-content h2 {
+    font-size: 2rem;
+  }
+
+  .story-content p {
+    font-size: 1rem;
+  }
+
+  .buckle-content h2 {
+    font-size: 2rem;
+  }
+
+  .natural-title h2 {
+    font-size: 2.2rem;
+  }
+
+  .natural-title .subtitle,
+  .natural-columns .column p {
+    font-size: 1rem;
+  }
+}
