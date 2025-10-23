@@ -162,34 +162,80 @@ body {
 }
 
 /* --- Info Section --- */
-.info-section {
-  background-color: #D3DAD9;
-  color: #000000;
-  padding: 80px 20px;
-  text-align: center;
+  .info-section {
+    background-color: #D3DAD9;
+    color: #000000;
+    padding: 80px 20px;
+    text-align: center;
+  }
+
+  .info-container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* Títol */
+  .info-section h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 10px; /* abans 30px */
+    text-transform: uppercase;
+  }
+
+  /* Paràgrafs */
+  .info-section p {
+    font-size: 1.1rem;
+    line-height: 1.4; /* més junt */
+    margin-bottom: 8px; /* abans 20px */
+    color: #333333;
+  }
+.info-images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 40px;
 }
 
-.info-container {
-  max-width: 900px;
-  margin: 0 auto;
+/* Fotos de la galeria */
+.info-images img {
+  width: 250px;       /* <-- canvia l'amplada aquí */
+  height: 180px;      /* <-- canvia l'altura aquí */
+  object-fit: cover;  /* cobreix sense deformar */
+  transition: transform 0.3s, filter 0.3s; /* efecte minimalista */
+  cursor: pointer;
 }
 
-/* Títol */
-.info-section h2 {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 10px; /* abans 30px */
-  text-transform: uppercase;
+/* Efecte minimalista al passar el ratolí */
+.info-images img:hover {
+  transform: scale(1.03);    /* lleugera ampliació */
+  filter: brightness(1.05);  /* lleugera il·luminació */
 }
 
-/* Paràgrafs */
-.info-section p {
-  font-size: 1.1rem;
-  line-height: 1.4; /* més junt */
-  margin-bottom: 8px; /* abans 20px */
-  color: #333333;
+
+/* ─── Primera línia ─── */
+.top-row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
 }
-  
+
+/* Les 3 primeres amb mateixa alçada */
+.top-row img {
+  height: 220px; /* ajusta-ho si cal */
+  width: auto;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* ─── Quarta imatge ─── */
+.bottom-row img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  border-radius: 6px;
+}
 
 /* --- Story Section --- */
 .story-section {

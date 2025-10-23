@@ -1,0 +1,68 @@
+.about-us {
+  max-width: 1200px;
+  margin: 120px auto 50px;
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  align-items: center;
+  background-color: #fff; /* fons blanc net */
+  padding: 40px;
+  border-radius: 0; /* sense arrodoniments */
+  box-shadow: none; /* sense ombra */
+}
+
+.about-us .about-image {
+  flex: 3; /* la imatge ocupa més espai */
+}
+
+.about-us .about-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: none;
+  border-radius: 0; /* sense arrodoniment */
+}
+
+.about-us .about-image:hover img {
+  transform: none;
+  filter: none;
+}
+
+.about-us .about-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-us .about-text h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.about-us .about-text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+@media (max-width: 768px) {
+  .about-us {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .about-us .about-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .about-us .about-text h2 {
+    font-size: 2rem;
+  }
+
+  .about-us .about-text p {
+    font-size: 1rem;
+  }
+}
