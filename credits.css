@@ -1,0 +1,101 @@
+/* ===== CREDITS SECTION ===== */
+.credits-section {
+  background-color: #000000;
+  color: #D3DAD9;
+  padding: 80px 0; /* Eliminem el padding lateral completament */
+  text-align: center;
+  width: 100%; /* Assegurem que ocupi tot l'ample */
+}
+
+/* ===== CREDITS SECTION ===== */
+.credits-section {
+  background-color: #000000;
+  color: #D3DAD9;
+  padding: 80px 0; /* Sense padding lateral */
+  text-align: center;
+  width: 100%;
+}
+
+.credits-container {
+  max-width: 100%; /* Canviar de 1200px a 100% */
+  margin: 0;
+  padding: 0; /* Eliminar qualsevol padding */
+}
+
+.credits-columns {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+  text-align: left;
+  align-items: stretch;
+  padding: 0 20px; /* Afegir padding aquí si cal espai */
+}
+
+.credits-column {
+  flex: 1;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.credits-logo {
+  width: 150px;
+  margin-bottom: 15px;
+  opacity: 0.95;
+}
+
+.company-name {
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-family: var(--font-main);
+}
+
+/* 🔹 Afegim un contenidor per a les icones socials */
+.social-logos {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* 🔹 Estil per a les icones (mateixa mida i color uniforme) */
+.instagram-logo{
+  width: 24px;
+  height: 24px;
+  display: block;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+  filter: invert(1)
+}
+
+.pinterest-logo {
+  width: 24px;
+  height: 24px;
+  display: block;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+  filter: invert(1); /* blanc sobre fons negre */
+}
+
+.instagram-logo:hover,
+.pinterest-logo:hover {
+  opacity: 1;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 5px 20px;
+  background-color: black;
+  color: var(--text-light);
+  font-size: 0.7rem;
+  text-align: left;
+  z-index: 5;
+  box-shadow: 0 -1px 4px rgba(0,0,0,0.1);
+  font-family: var(--font-main);
+}
