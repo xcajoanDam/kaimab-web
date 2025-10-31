@@ -1,16 +1,18 @@
-/* ===== VARIABLES ===== */
+/* ======================================================= */
+/* ===== VARIABLES & RESET ===== */
+/* ======================================================= */
+
 :root {
-  --navbar-bg: black; /* Fons negre per la navbar */
-  --text-light: #ffffff;
+  --navbar-bg: black;
+  --text-light: #e6e6e6;
   --text-muted: #e6e6e6;
   --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --primary-color: #000000;
   --secondary-color: #555555;
-  --background-color: #ffffff;
+  --background-color: #e6e6e6;
   --max-width: 1200px;
 }
 
-/* ===== RESET ===== */
 * {
   margin: 0;
   padding: 0;
@@ -18,8 +20,6 @@
 }
 
 html, body {
-  margin: 0;
-  padding: 0;
   width: 100%;
   height: 100%;
   font-family: var(--font-main);
@@ -29,75 +29,10 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ===== NAVBAR ===== */
-.navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 45px;
-  padding: 4px 25px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: transparent;
-  z-index: 10;
-  transition: height 0.3s ease, padding 0.3s ease;
-}
+/* ======================================================= */
+/* ===== HERO SECTION ===== */
+/* ======================================================= */
 
-.navbar::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: var(--navbar-bg);
-  transition: opacity 0.3s ease, background-color 0.3s ease;
-  z-index: -1;
-  opacity: 0;
-}
-
-.navbar.scrolled::before {
-  opacity: 1;
-}
-
-.logo img {
-  height: 39px;
-  width: auto;
-  transition: height 0.3s ease;
-}
-
-.nav-links a {
-  color: var(--text-light);
-  text-decoration: none;
-  margin-left: 25px;
-  font-weight: 500;
-  font-size: 0.8rem;
-  position: relative;
-  transition: color 0.3s ease, font-size 0.3s ease;
-  font-family: var(--font-main);
-}
-
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  left: 0;
-  bottom: -4px;
-  background-color: var(--text-light);
-  transition: width 0.3s ease, transform 0.3s ease;
-  transform: scaleX(0);
-  transform-origin: left;
-}
-
-.nav-links a:hover::after {
-  width: 100%;
-  transform: scaleX(1);
-}
-
-.nav-links a:hover {
-  color: #ffffff;
-}
-
-/* ===== HERO ===== */
 .hero {
   position: relative;
   width: 100vw;
@@ -129,35 +64,51 @@ html, body {
   left: 0;
   width: 100%;
   height: 15%;
-  background: linear-gradient(to top, var(--background-color), rgba(255,255,255,0));
+  background: linear-gradient(to top, var(--background-color), rgba(230,230,230,0));
   z-index: 2;
 }
 
 .hero-content {
   position: relative;
   z-index: 3;
-  color: #ffffff;
+  color: var(--text-light);
   padding: 0 20px;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 1s ease-out 0.3s, transform 1s ease-out 0.3s;
 }
 
-.hero-content.visible { 
-  opacity: 1; 
-  transform: translateY(0); 
+.hero-content.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.hero-logo { height: 80px; margin-bottom: 1rem; }
+.hero-logo {
+  height: 80px;
+  margin-bottom: 1rem;
+}
 
-.hero-content h1 { font-size: 6rem; margin-bottom: 0.5rem; letter-spacing: 5px; }
-.hero-content p { font-size: 1.5rem; font-weight: 300; letter-spacing: 1px; }
+.hero-content h1 {
+  font-size: 6rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 5px;
+}
 
-/* ===== SECTIONS & FADE-IN ===== */
+.hero-content p {
+  font-size: 1.5rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+/* ======================================================= */
+/* ===== CONTENT SECTIONS ===== */
+/* ======================================================= */
+
+/* Estils generals per seccions */
 section:not(.hero):not(.credits-section):not(.full-width-section) {
-  padding: 2rem 1rem;
-  max-width: var(--max-width);
-  margin: 0 auto;
+  padding: 2rem 0; /* CANVI: Eliminem padding lateral */
+  max-width: 100%; /* CANVI: Ocupa tot l'ample */
+  margin: 0;
   width: 100%;
   text-align: center;
 }
@@ -165,7 +116,8 @@ section:not(.hero):not(.credits-section):not(.full-width-section) {
 .fade-section {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.9s cubic-bezier(0.25,0.46,0.45,0.94), transform 0.9s cubic-bezier(0.25,0.46,0.45,0.94);
+  transition: opacity 0.9s cubic-bezier(0.25,0.46,0.45,0.94), 
+              transform 0.9s cubic-bezier(0.25,0.46,0.45,0.94);
 }
 
 .fade-section.visible {
@@ -173,183 +125,204 @@ section:not(.hero):not(.credits-section):not(.full-width-section) {
   transform: translateY(0);
 }
 
-/* ===== ABOUT US ===== */
-.about-us {
+/* Estils compartits per seccions de contingut */
+.content-section {
+  background-color: var(--background-color);
+  color: var(--secondary-color);
+  padding: 6rem 0; /* CANVI: Eliminem padding lateral */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-wrapper {
   display: flex;
   align-items: center;
-  gap: 100px;
-  padding: 4rem 1rem;
-  text-align: left;
-  background-color: #fff;
+  gap: 120px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+  padding: 0 20px; /* CANVI: Padding només al contingut interior */
+}
+
+.content-image {
+  flex: 1;
+  min-width: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-image img {
+  width: 90%;
+  height: auto;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+  display: block;
+}
+
+.content-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.content-text h2 {
+  color: var(--primary-color);
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.content-text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
   color: var(--secondary-color);
+}
+
+/* About Us - imatge esquerra, text dreta */
+.about-us {
+  background-color: var(--background-color);
+  color: var(--secondary-color);
+  padding: 6rem 0; /* CANVI: Eliminem padding lateral */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  gap: 120px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+  padding: 0 20px; /* CANVI: Padding només al contingut interior */
 }
 
 .about-image {
   flex: 1;
-  min-width: 65px;
-  margin-right: -1rem;
-}
-
-.about-image img {
-  width: 30%;
-  height: auto;
-  display: block;
+  min-width: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  order: 1;
 }
 
 .about-text {
   flex: 1;
-  max-width: 450px;
-  margin-left: -1rem;
+  min-width: 300px;
+  order: 2;
 }
 
 .about-text h2 {
   color: var(--primary-color);
   font-size: 2.2rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 .about-text p {
-  font-size: 1.2rem;
-  line-height: 1.6;
-}
-
-/* ===== INFO SECTIONS ===== */
-.info-section {
-  padding: 2rem 1rem;
-  max-width: 800px;
-  border-bottom: 1px solid #f8f8f8;
-  background-color: #fff;
-}
-
-.info-section:last-of-type {
-  border-bottom: none;
-}
-
-.info-container h2 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  color: var(--primary-color);
-}
-
-.info-container p {
-  max-width: 600px;
-  margin: 0 auto 1.5rem auto;
   font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
   color: var(--secondary-color);
 }
 
-/* ===== CREDITS SECTION ===== */
-.credits-section {
-  background-color: #000000;
-  color: #D3DAD9;
-  padding: 80px 20px;
-  text-align: center;
-  width: 100%;
-}
-
-.credits-container {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.credits-columns {
+/* Craftsmanship - text esquerra, imatge dreta */
+.craftsmanship-section {
+  background-color: var(--background-color);
+  color: var(--secondary-color);
+  padding: 6rem 0; /* CANVI: Eliminem padding lateral */
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 40px;
-  text-align: left;
-  align-items: stretch;
+  justify-content: center;
+  align-items: center;
 }
 
-.credits-column {
-  flex: 1;
-  min-width: 250px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin-bottom: 30px;
-}
-
-.credits-logo {
-  width: 150px;
-  margin-bottom: 15px;
-  opacity: 0.95;
-}
-
-.company-name {
-  font-weight: bold;
-  margin-bottom: 5px;
-  font-family: var(--font-main);
-}
-
-/* 🔹 Afegim un contenidor per a les icones socials */
-.social-logos {
+.craftsmanship-content {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-/* 🔹 Estil per a les icones */
-.instagram-logo{
-  width: 24px;
-  height: 24px;
-  display: block;
-  opacity: 0.9;
-  transition: opacity 0.3s ease;
-  filter: invert(1)
-}
-
-.pinterest-logo {
-  width: 24px;
-  height: 24px;
-  display: block;
-  opacity: 0.9;
-  transition: opacity 0.3s ease;
-  filter: invert(1);
-}
-
-.instagram-logo:hover,
-.pinterest-logo:hover {
-  opacity: 1;
-}
-
-/* ===== FOOTER ===== */
-.footer {
-  bottom: 0;
-  left: 0;
+  gap: 120px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  flex-wrap: wrap;
+  flex-direction: row;
   width: 100%;
-  padding: 5px 20px;
-  background-color: black;
-  color: var(--text-light);
-  font-size: 0.7rem;
-  text-align: left;
-  z-index: 5;
-  box-shadow: 0 -1px 4px rgba(0,0,0,0.1);
-  font-family: var(--font-main);
+  padding: 0 20px; /* CANVI: Padding només al contingut interior */
 }
 
-/* ===== BOTÓN LOCO MINIMALISTA ===== */
+.craftsmanship-text {
+  flex: 1;
+  min-width: 300px;
+  order: 1;
+}
+
+.craftsmanship-text h2 {
+  color: var(--primary-color);
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.craftsmanship-text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+  color: var(--secondary-color);
+}
+
+.craftsmanship-image {
+  flex: 1;
+  min-width: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  order: 2;
+}
+
+.craftsmanship-image img {
+  width: 90%;
+  height: auto;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+  display: block;
+}
+
+/* ======================================================= */
+/* ===== BOTÓ ANIMAT ===== */
+/* ======================================================= */
+
 .about-btn {
   display: inline-block;
   padding: 0.85rem 2.8rem;
-  border: 2px solid var(--primary-color);
+  border: 2px solid var(--text-light);
   background: transparent;
-  color: var(--primary-color);
+  color: var(--text-light);
   text-transform: uppercase;
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 3px;
   position: relative;
   cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
   margin-top: 1rem;
   overflow: hidden;
   text-decoration: none;
 }
 
-/* Efecto de líquido que se expande */
+.about-btn:hover {
+  color: var(--text-light);
+  letter-spacing: 4px;
+  border-color: transparent;
+}
+
 .about-btn::before {
   content: '';
   position: absolute;
@@ -360,7 +333,7 @@ section:not(.hero):not(.credits-section):not(.full-width-section) {
   background: var(--primary-color);
   border-radius: 50%;
   transform: translate(-50%, -50%);
-  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: all 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
   z-index: -1;
 }
 
@@ -369,14 +342,6 @@ section:not(.hero):not(.credits-section):not(.full-width-section) {
   height: 300px;
 }
 
-.about-btn:hover {
-  color: #ffffff;
-  letter-spacing: 4px;
-  border-color: transparent;
-  transform: none;
-}
-
-/* Efecto de línea que dibuja el borde */
 .about-btn::after {
   content: '';
   position: absolute;
@@ -407,7 +372,6 @@ section:not(.hero):not(.credits-section):not(.full-width-section) {
   }
 }
 
-/* Efecto de texto flotante */
 .about-btn span {
   display: inline-block;
   transition: transform 0.3s ease;
@@ -422,48 +386,505 @@ section:not(.hero):not(.credits-section):not(.full-width-section) {
   50% { transform: translateY(-2px); }
 }
 
-/* Micro-interacción al hacer click */
 .about-btn:active {
   transform: scale(0.98);
   transition: transform 0.1s ease;
 }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 992px) {
-  .hero-content h1 { font-size: 4rem; }
-  .about-us { 
-    flex-direction: column; 
-    gap: 0rem;
-    padding: 3rem 1rem; 
-  }
-  .aabout-image {
-    margin-right: 0;
-  }
-  .about-text {
-    margin-left: 0;
-    max-width: 100%; 
-    text-align: center; 
-  }
-  .about-text h2 { margin-top: 1rem; }
-  .info-section { padding: 2rem 1rem; }
+/* ======================================================= */
+/* ===== SECCIONS INFORMATIVES ===== */
+/* ======================================================= */
+
+.info-section {
+  padding: 4rem 0; /* CANVI: Eliminem padding lateral */
+  background-color: #201d1d;
+  width: 100%;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.info-section:last-of-type {
+  border-bottom: none;
+}
+
+.info-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 20px; /* CANVI: Padding només al contingut interior */
+}
+
+.info-container h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--text-light);
+  letter-spacing: 1px;
+}
+
+.info-container p {
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* ======================================================= */
+/* ===== CAROUSEL SECTION ===== */
+/* ======================================================= */
+
+.carousel-section {
+    padding: 80px 0;
+    background-color: #201d1d;
+    width: 100%;
+}
+
+.carousel-container {
+    max-width: 100%;
+    margin: 0;
+    padding: 0 20px;
+}
+
+.carousel-container h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    color: var(--text-light);
+    margin-bottom: 50px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: normal;
+}
+
+.carousel-wrapper {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    height: 500px;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.carousel-slide::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 100%);
+    pointer-events: none;
+}
+
+.carousel-caption {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: white;
+    z-index: 2;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+    font-family: 'GFS Didot', serif;
+}
+
+/* MILLORA: Espaiat entre el carrusel i els indicadors */
+.carousel-indicators-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 35px;
+    padding: 15px 0;
+}
+
+.carousel-indicators {
+    display: inline-flex;
+    justify-content: center;
+    gap: 18px;
+    background: rgba(255, 255, 255, 0.1); /* CANVI: Fons més subtil */
+    padding: 12px 25px;
+    border-radius: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2); /* CANVI: Vora clara */
+    backdrop-filter: blur(10px); /* CANVI: Efecte glass */
+}
+
+.carousel-indicator {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.4); /* CANVI: Color clar */
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border: 2px solid transparent;
+}
+
+.carousel-indicator:hover {
+    background-color: rgba(255, 255, 255, 0.7); /* CANVI: Hover més clar */
+    transform: scale(1.3);
+}
+
+.carousel-indicator.active {
+    background-color: #e6e6e6; /* CANVI: Color actiu clar */
+    transform: scale(1.3);
+    box-shadow: 0 0 0 2px rgba(230, 230, 230, 0.3); /* CANVI: Sombra suau */
+}
+
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.15); /* CANVI: Fons més transparent */
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; /* CANVI: Ara és rodó */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    font-size: 1.5rem;
+    color: #e6e6e6; /* CANVI: Color clar */
+    font-weight: bold;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3); /* CANVI: Vora clara */
+    backdrop-filter: blur(10px); /* CANVI: Efecte glass */
+}
+
+.carousel-nav:hover {
+    background: rgba(255, 255, 255, 0.25); /* CANVI: Hover més visible */
+    transform: translateY(-50%) scale(1.15);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+    color: #ffffff; /* CANVI: Color més brillant en hover */
+    border-color: rgba(255, 255, 255, 0.5); /* CANVI: Vora més visible */
+}
+
+.carousel-prev {
+    left: 25px;
+}
+
+.carousel-next {
+    right: 25px;
+}
+
+/* Configuració de les imatges BRACALET */
+.carousel-slide:nth-child(1) {
+    background-image: url('img/BRACELET1.jpg');
+}
+
+.carousel-slide:nth-child(2) {
+    background-image: url('img/BRACELET2.jpg');
+}
+
+.carousel-slide:nth-child(3) {
+    background-image: url('img/BRACELET3.jpg');
+}
+
+/* Estils de fallback si les imatges no es carreguen */
+.carousel-slide::before {
+    content: 'BRACALET ' attr(data-index);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ccc;
+    font-size: 1.5rem;
+    font-family: 'GFS Didot', serif;
+    z-index: -1;
+    opacity: 0.3;
+}
+
+.carousel-slide:nth-child(1)::before {
+    content: 'BRACALET 1';
+}
+
+.carousel-slide:nth-child(2)::before {
+    content: 'BRACALET 2';
+}
+
+.carousel-slide:nth-child(3)::before {
+    content: 'BRACALET 3';
+}
+
+/* Responsive per als nous estils */
+@media (max-width: 768px) {
+    .carousel-nav {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+    }
+    
+    .carousel-prev {
+        left: 15px;
+    }
+    
+    .carousel-next {
+        right: 15px;
+    }
+    
+    .carousel-indicators {
+        gap: 15px;
+        padding: 10px 20px;
+    }
+    
+    .carousel-indicator {
+        width: 12px;
+        height: 12px;
+    }
 }
 
 @media (max-width: 600px) {
-  h1 { font-size: 3rem; }
-  h2 { font-size: 1.5rem; }
-  .hero { height: 70vh; }
-  .hero-content { padding-top: 15vh; }
-  .hero-content h1 { font-size: 3.5rem; }
-  section { padding: 1.5rem 1rem; }
-  
-  .about-btn {
-    padding: 0.7rem 2.2rem;
-    font-size: 0.8rem;
-    letter-spacing: 2px;
-  }
-  
-  .about-btn:hover::before {
-    width: 200px;
-    height: 200px;
-  }
+    .carousel-nav {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+    
+    .carousel-prev {
+        left: 10px;
+    }
+    
+    .carousel-next {
+        right: 10px;
+    }
+    
+    .carousel-indicators {
+        gap: 12px;
+        padding: 8px 16px;
+    }
+    
+    .carousel-indicator {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+/* ======================================================= */
+/* ===== RESPONSIVE DESIGN ===== */
+/* ======================================================= */
+
+@media (max-width: 992px) {
+    .carousel {
+        height: 450px;
+    }
+    
+    .carousel-container h2 {
+        font-size: 1.8rem;
+    }
+    
+    .carousel-caption {
+        font-size: 1.5rem;
+        bottom: 30px;
+    }
+    
+    .carousel-nav {
+        width: 55px;
+        height: 55px;
+        font-size: 1.4rem;
+    }
+    
+    .carousel-indicators-container {
+        margin-top: 30px;
+    }
+
+    .about-content,
+    .craftsmanship-content {
+        flex-direction: column;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .about-image,
+    .craftsmanship-image {
+        order: 1;
+    }
+
+    .about-text,
+    .craftsmanship-text {
+        order: 2;
+    }
+
+    .about-text h2,
+    .craftsmanship-text h2 {
+        font-size: 1.8rem;
+    }
+
+    .about-text p,
+    .craftsmanship-text p {
+        font-size: 1rem;
+    }
+
+    .about-image img,
+    .craftsmanship-image img {
+        width: 100%;
+    }
+
+    .about-us,
+    .craftsmanship-section {
+        padding: 3rem 0; /* CANVI: Eliminem padding lateral */
+    }
+    
+    .content-wrapper,
+    .about-content,
+    .craftsmanship-content {
+        padding: 0 20px; /* CANVI: Padding només al contingut interior */
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-wrapper {
+        max-width: 95%;
+    }
+    
+    .carousel {
+        height: 400px;
+    }
+    
+    .carousel-container h2 {
+        font-size: 1.6rem;
+        margin-bottom: 40px;
+    }
+    
+    .carousel-caption {
+        font-size: 1.3rem;
+        bottom: 25px;
+    }
+    
+    .carousel-indicators-container {
+        margin-top: 25px;
+    }
+    
+    .carousel-indicators {
+        gap: 15px;
+        padding: 10px 20px;
+    }
+    
+    .carousel-indicator {
+        width: 12px;
+        height: 12px;
+    }
+    
+    .carousel-nav {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+    }
+    
+    .carousel-prev {
+        left: 15px;
+    }
+    
+    .carousel-next {
+        right: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    .carousel-section {
+        padding: 60px 0;
+    }
+    
+    .carousel {
+        height: 350px;
+    }
+    
+    .carousel-container h2 {
+        font-size: 1.4rem;
+        margin-bottom: 30px;
+    }
+    
+    .carousel-caption {
+        font-size: 1.1rem;
+        bottom: 20px;
+    }
+    
+    .carousel-indicators-container {
+        margin-top: 20px;
+    }
+    
+    .carousel-indicators {
+        gap: 12px;
+        padding: 8px 16px;
+    }
+    
+    .carousel-indicator {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .carousel-nav {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+    
+    .carousel-prev {
+        left: 10px;
+    }
+    
+    .carousel-next {
+        right: 10px;
+    }
+    
+    /* Ajustos per a mòbil a les seccions informatives */
+    .info-section {
+        padding: 3rem 0; /* CANVI: Eliminem padding lateral */
+    }
+    
+    .info-container h2 {
+        font-size: 1.5rem;
+    }
+    
+    .info-container p {
+        font-size: 1.1rem;
+    }
+
+    h1 { font-size: 3rem; }
+    h2 { font-size: 1.5rem; }
+    
+    .hero { 
+        height: 70vh; 
+    }
+    
+    .hero-content { 
+        padding-top: 15vh; 
+    }
+    
+    .hero-content h1 { 
+        font-size: 3.5rem; 
+    }
+    
+    section { 
+        padding: 1.5rem 0; /* CANVI: Eliminem padding lateral */
+    }
+
+    .about-btn {
+        padding: 0.7rem 2.2rem;
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+    }
+
+    .about-btn:hover::before {
+        width: 200px;
+        height: 200px;
+    }
 }
