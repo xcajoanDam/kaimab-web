@@ -3,14 +3,46 @@
 /* ======================================================= */
 
 :root {
-  --navbar-bg: black;
+  /* Colors principals */
+  --primary-black: #000000;
+  --primary-white: #ffffff;
+  --primary-gray: #7f7f7f;
+  --container-bg: #D3DAD9;
+  --dark-bg: #201d1d;
+  
+  /* Colors de text */
   --text-light: #e6e6e6;
   --text-muted: #e6e6e6;
-  --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --primary-color: #000000;
-  --secondary-color: #555555;
+  --text-dark: var(--primary-black);
+  --text-gray: #555555;
+  --text-light-gray: #f0f0f0;
+  
+  /* Colors de fons */
   --background-color: #e6e6e6;
+  --bg-dark: var(--primary-black);
+  --bg-light: var(--container-bg);
+  --bg-overlay: rgba(0, 0, 0, 0.2);
+  --bg-overlay-light: rgba(0, 0, 0, 0.3);
+  --bg-overlay-medium: rgba(0, 0, 0, 0.4);
+  
+  /* Colors d'efectes */
+  --shadow-light: rgba(0, 0, 0, 0.08);
+  --shadow-medium: rgba(0, 0, 0, 0.2);
+  --shadow-dark: rgba(0, 0, 0, 0.3);
+  --accent-color: var(--primary-gray);
+  --hover-accent: var(--container-bg);
+  
+  /* Efectes glass */
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-hover: rgba(255, 255, 255, 0.25);
+  
+  /* Fonts i mides */
+  --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --max-width: 1200px;
+
+
+
 }
 
 * {
@@ -41,7 +73,7 @@ html, body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-image: url('img/kaimab-aboutus-background.png');
+  background-image: url('img/kaimab-sustanability-background.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -54,7 +86,7 @@ html, body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.2);
+  background-color: var(--bg-overlay);
   z-index: 1;
 }
 
@@ -106,8 +138,8 @@ html, body {
 
 /* Estils generals per seccions */
 section:not(.hero):not(.credits-section):not(.full-width-section) {
-  padding: 2rem 0; /* CANVI: Eliminem padding lateral */
-  max-width: 100%; /* CANVI: Ocupa tot l'ample */
+  padding: 2rem 0;
+  max-width: 100%;
   margin: 0;
   width: 100%;
   text-align: center;
@@ -128,8 +160,8 @@ section:not(.hero):not(.credits-section):not(.full-width-section) {
 /* Estils compartits per seccions de contingut */
 .content-section {
   background-color: var(--background-color);
-  color: var(--secondary-color);
-  padding: 6rem 0; /* CANVI: Eliminem padding lateral */
+  color: var(--text-gray);
+  padding: 6rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -144,7 +176,7 @@ section:not(.hero):not(.credits-section):not(.full-width-section) {
   flex-wrap: wrap;
   flex-direction: row;
   width: 100%;
-  padding: 0 20px; /* CANVI: Padding només al contingut interior */
+  padding: 0 20px;
 }
 
 .content-image {
@@ -158,7 +190,7 @@ section:not(.hero):not(.credits-section):not(.full-width-section) {
 .content-image img {
   width: 90%;
   height: auto;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 10px 20px var(--shadow-light);
   transition: transform 0.6s ease, box-shadow 0.6s ease;
   display: block;
 }
@@ -169,7 +201,7 @@ section:not(.hero):not(.credits-section):not(.full-width-section) {
 }
 
 .content-text h2 {
-  color: var(--primary-color);
+  color: var(--primary-black);
   font-size: 2.2rem;
   margin-bottom: 1rem;
   letter-spacing: 2px;
@@ -180,14 +212,14 @@ section:not(.hero):not(.credits-section):not(.full-width-section) {
   font-size: 1.1rem;
   line-height: 1.6;
   margin-bottom: 0.5rem;
-  color: var(--secondary-color);
+  color: var(--text-gray);
 }
 
 /* About Us - imatge esquerra, text dreta */
 .about-us {
   background-color: var(--background-color);
-  color: var(--secondary-color);
-  padding: 6rem 0; /* CANVI: Eliminem padding lateral */
+  color: var(--text-gray);
+  padding: 6rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -202,7 +234,7 @@ section:not(.hero):not(.credits-section):not(.full-width-section) {
   flex-wrap: wrap;
   flex-direction: row;
   width: 100%;
-  padding: 0 20px; /* CANVI: Padding només al contingut interior */
+  padding: 0 20px;
 }
 
 .about-image {
@@ -221,7 +253,7 @@ section:not(.hero):not(.credits-section):not(.full-width-section) {
 }
 
 .about-text h2 {
-  color: var(--primary-color);
+  color: var(--primary-black);
   font-size: 2.2rem;
   margin-bottom: 1rem;
   letter-spacing: 2px;
@@ -232,14 +264,14 @@ section:not(.hero):not(.credits-section):not(.full-width-section) {
   font-size: 1.1rem;
   line-height: 1.6;
   margin-bottom: 0.5rem;
-  color: var(--secondary-color);
+  color: var(--text-gray);
 }
 
 /* Craftsmanship - text esquerra, imatge dreta */
 .craftsmanship-section {
   background-color: var(--background-color);
-  color: var(--secondary-color);
-  padding: 6rem 0; /* CANVI: Eliminem padding lateral */
+  color: var(--text-gray);
+  padding: 6rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -254,7 +286,7 @@ section:not(.hero):not(.credits-section):not(.full-width-section) {
   flex-wrap: wrap;
   flex-direction: row;
   width: 100%;
-  padding: 0 20px; /* CANVI: Padding només al contingut interior */
+  padding: 0 20px;
 }
 
 .craftsmanship-text {
@@ -264,7 +296,7 @@ section:not(.hero):not(.credits-section):not(.full-width-section) {
 }
 
 .craftsmanship-text h2 {
-  color: var(--primary-color);
+  color: var(--primary-black);
   font-size: 2.2rem;
   margin-bottom: 1rem;
   letter-spacing: 2px;
@@ -275,7 +307,7 @@ section:not(.hero):not(.credits-section):not(.full-width-section) {
   font-size: 1.1rem;
   line-height: 1.6;
   margin-bottom: 0.5rem;
-  color: var(--secondary-color);
+  color: var(--text-gray);
 }
 
 .craftsmanship-image {
@@ -290,7 +322,7 @@ section:not(.hero):not(.credits-section):not(.full-width-section) {
 .craftsmanship-image img {
   width: 90%;
   height: auto;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 10px 20px var(--shadow-light);
   transition: transform 0.6s ease, box-shadow 0.6s ease;
   display: block;
 }
@@ -330,7 +362,7 @@ section:not(.hero):not(.credits-section):not(.full-width-section) {
   left: 50%;
   width: 0;
   height: 0;
-  background: var(--primary-color);
+  background: var(--primary-black);
   border-radius: 50%;
   transform: translate(-50%, -50%);
   transition: all 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
@@ -349,7 +381,7 @@ section:not(.hero):not(.credits-section):not(.full-width-section) {
   height: 100%;
   top: 0;
   left: 0;
-  border: 2px solid var(--primary-color);
+  border: 2px solid var(--primary-black);
   opacity: 0;
   transition: all 0.3s ease;
 }
@@ -396,8 +428,8 @@ section:not(.hero):not(.credits-section):not(.full-width-section) {
 /* ======================================================= */
 
 .info-section {
-  padding: 4rem 0; /* CANVI: Eliminem padding lateral */
-  background-color: #201d1d;
+  padding: 4rem 0;
+  background-color: var(--dark-bg);
   width: 100%;
   border-radius: 0;
   box-shadow: none;
@@ -411,7 +443,7 @@ section:not(.hero):not(.credits-section):not(.full-width-section) {
   max-width: 800px;
   margin: 0 auto;
   text-align: center;
-  padding: 0 20px; /* CANVI: Padding només al contingut interior */
+  padding: 0 20px;
 }
 
 .info-container h2 {
@@ -436,7 +468,7 @@ section:not(.hero):not(.credits-section):not(.full-width-section) {
 
 .carousel-section {
     padding: 80px 0;
-    background-color: #201d1d;
+    background-color: var(--dark-bg);
     width: 100%;
 }
 
@@ -461,7 +493,7 @@ section:not(.hero):not(.credits-section):not(.full-width-section) {
     max-width: 1000px;
     margin: 0 auto;
     overflow: hidden;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 15px 35px var(--shadow-dark);
     border-radius: 12px;
 }
 
@@ -487,7 +519,7 @@ section:not(.hero):not(.credits-section):not(.full-width-section) {
     left: 0;
     right: 0;
     height: 40%;
-    background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 100%);
+    background: linear-gradient(to top, var(--bg-overlay-medium) 0%, transparent 100%);
     pointer-events: none;
 }
 
@@ -497,11 +529,11 @@ section:not(.hero):not(.credits-section):not(.full-width-section) {
     left: 0;
     right: 0;
     text-align: center;
-    color: white;
+    color: var(--primary-white);
     z-index: 2;
     font-size: 1.8rem;
     letter-spacing: 2px;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+    text-shadow: 0 2px 8px var(--shadow-dark);
     font-family: 'GFS Didot', serif;
 }
 
@@ -518,44 +550,44 @@ section:not(.hero):not(.credits-section):not(.full-width-section) {
     display: inline-flex;
     justify-content: center;
     gap: 18px;
-    background: rgba(255, 255, 255, 0.1); /* CANVI: Fons més subtil */
+    background: var(--glass-bg);
     padding: 12px 25px;
     border-radius: 30px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.2); /* CANVI: Vora clara */
-    backdrop-filter: blur(10px); /* CANVI: Efecte glass */
+    box-shadow: 0 4px 20px var(--shadow-dark);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
 }
 
 .carousel-indicator {
     width: 14px;
     height: 14px;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.4); /* CANVI: Color clar */
+    background-color: rgba(255, 255, 255, 0.4);
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     border: 2px solid transparent;
 }
 
 .carousel-indicator:hover {
-    background-color: rgba(255, 255, 255, 0.7); /* CANVI: Hover més clar */
+    background-color: rgba(255, 255, 255, 0.7);
     transform: scale(1.3);
 }
 
 .carousel-indicator.active {
-    background-color: #e6e6e6; /* CANVI: Color actiu clar */
+    background-color: var(--text-light);
     transform: scale(1.3);
-    box-shadow: 0 0 0 2px rgba(230, 230, 230, 0.3); /* CANVI: Sombra suau */
+    box-shadow: 0 0 0 2px rgba(230, 230, 230, 0.3);
 }
 
 .carousel-nav {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.15); /* CANVI: Fons més transparent */
+    background: var(--glass-bg);
     border: none;
     width: 60px;
     height: 60px;
-    border-radius: 50%; /* CANVI: Ara és rodó */
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -563,19 +595,19 @@ section:not(.hero):not(.credits-section):not(.full-width-section) {
     transition: all 0.3s ease;
     z-index: 10;
     font-size: 1.5rem;
-    color: #e6e6e6; /* CANVI: Color clar */
+    color: var(--text-light);
     font-weight: bold;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.3); /* CANVI: Vora clara */
-    backdrop-filter: blur(10px); /* CANVI: Efecte glass */
+    box-shadow: 0 4px 20px var(--shadow-dark);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
 }
 
 .carousel-nav:hover {
-    background: rgba(255, 255, 255, 0.25); /* CANVI: Hover més visible */
+    background: var(--glass-hover);
     transform: translateY(-50%) scale(1.15);
-    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
-    color: #ffffff; /* CANVI: Color més brillant en hover */
-    border-color: rgba(255, 255, 255, 0.5); /* CANVI: Vora més visible */
+    box-shadow: 0 6px 25px var(--shadow-medium);
+    color: var(--primary-white);
+    border-color: rgba(255, 255, 255, 0.5);
 }
 
 .carousel-prev {
@@ -606,7 +638,7 @@ section:not(.hero):not(.credits-section):not(.full-width-section) {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #ccc;
+    color: var(--text-gray);
     font-size: 1.5rem;
     font-family: 'GFS Didot', serif;
     z-index: -1;
@@ -623,59 +655,6 @@ section:not(.hero):not(.credits-section):not(.full-width-section) {
 
 .carousel-slide:nth-child(3)::before {
     content: 'BRACALET 3';
-}
-
-/* Responsive per als nous estils */
-@media (max-width: 768px) {
-    .carousel-nav {
-        width: 50px;
-        height: 50px;
-        font-size: 1.3rem;
-    }
-    
-    .carousel-prev {
-        left: 15px;
-    }
-    
-    .carousel-next {
-        right: 15px;
-    }
-    
-    .carousel-indicators {
-        gap: 15px;
-        padding: 10px 20px;
-    }
-    
-    .carousel-indicator {
-        width: 12px;
-        height: 12px;
-    }
-}
-
-@media (max-width: 600px) {
-    .carousel-nav {
-        width: 45px;
-        height: 45px;
-        font-size: 1.1rem;
-    }
-    
-    .carousel-prev {
-        left: 10px;
-    }
-    
-    .carousel-next {
-        right: 10px;
-    }
-    
-    .carousel-indicators {
-        gap: 12px;
-        padding: 8px 16px;
-    }
-    
-    .carousel-indicator {
-        width: 10px;
-        height: 10px;
-    }
 }
 
 /* ======================================================= */
@@ -740,13 +719,13 @@ section:not(.hero):not(.credits-section):not(.full-width-section) {
 
     .about-us,
     .craftsmanship-section {
-        padding: 3rem 0; /* CANVI: Eliminem padding lateral */
+        padding: 3rem 0;
     }
     
     .content-wrapper,
     .about-content,
     .craftsmanship-content {
-        padding: 0 20px; /* CANVI: Padding només al contingut interior */
+        padding: 0 20px;
     }
 }
 
@@ -847,7 +826,7 @@ section:not(.hero):not(.credits-section):not(.full-width-section) {
     
     /* Ajustos per a mòbil a les seccions informatives */
     .info-section {
-        padding: 3rem 0; /* CANVI: Eliminem padding lateral */
+        padding: 3rem 0;
     }
     
     .info-container h2 {
@@ -874,7 +853,7 @@ section:not(.hero):not(.credits-section):not(.full-width-section) {
     }
     
     section { 
-        padding: 1.5rem 0; /* CANVI: Eliminem padding lateral */
+        padding: 1.5rem 0;
     }
 
     .about-btn {

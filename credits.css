@@ -1,25 +1,16 @@
 /* ===== CREDITS SECTION ===== */
 .credits-section {
-  background-color: #000000;
-  color: #D3DAD9;
-  padding: 80px 0; /* Eliminem el padding lateral completament */
-  text-align: center;
-  width: 100%; /* Assegurem que ocupi tot l'ample */
-}
-
-/* ===== CREDITS SECTION ===== */
-.credits-section {
-  background-color: #000000;
-  color: #D3DAD9;
-  padding: 80px 0; /* Sense padding lateral */
+  background-color: var(--primary-black);
+  color: var(--container-bg);
+  padding: 80px 0;
   text-align: center;
   width: 100%;
 }
 
 .credits-container {
-  max-width: 100%; /* Canviar de 1200px a 100% */
+  max-width: 100%;
   margin: 0;
-  padding: 0; /* Eliminar qualsevol padding */
+  padding: 0;
 }
 
 .credits-columns {
@@ -29,7 +20,7 @@
   gap: 40px;
   text-align: left;
   align-items: stretch;
-  padding: 0 20px; /* Afegir padding aquí si cal espai */
+  padding: 0 20px;
 }
 
 .credits-column {
@@ -62,13 +53,13 @@
 }
 
 /* 🔹 Estil per a les icones (mateixa mida i color uniforme) */
-.instagram-logo{
+.instagram-logo {
   width: 24px;
   height: 24px;
   display: block;
   opacity: 0.9;
   transition: opacity 0.3s ease;
-  filter: invert(1)
+  filter: invert(1);
 }
 
 .pinterest-logo {
@@ -77,7 +68,7 @@
   display: block;
   opacity: 0.9;
   transition: opacity 0.3s ease;
-  filter: invert(1); /* blanc sobre fons negre */
+  filter: invert(1);
 }
 
 .instagram-logo:hover,
@@ -91,11 +82,11 @@
   left: 0;
   width: 100%;
   padding: 5px 20px;
-  background-color: black;
+  background-color: var(--primary-black);
   color: var(--text-light);
   font-size: 0.7rem;
   text-align: left;
   z-index: 5;
-  box-shadow: 0 -1px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 -1px 4px var(--shadow-light);
   font-family: var(--font-main);
 }
